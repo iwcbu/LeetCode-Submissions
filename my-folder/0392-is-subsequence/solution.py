@@ -1,9 +1,5 @@
 class Solution(object):
     def isSubsequence(self, s, t):
-        """
-        x is the index of s
-        y is the index of t
-        """
 
         x = 0
         y = 0
