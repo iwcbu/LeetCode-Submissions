@@ -1,26 +1,29 @@
 class Solution(object):
     def isIsomorphic(self, s, t):
-        if len(s) != len(t):
-            return False
-
+        if s == t:
+            return True
+        
         d = {}
-        d2 = {}
-
+        dvs = set()
         for i in range(len(s)):
-            x = s[i]
-            y = t[i]
-
-            if x not in d and y not in d2:
-                d[x] = y
-                d2[y] = x
-            elif x in d and y in d2:
-                if d[x] != y and d2[y] != x:
+            if s[i] not in d:
+                if t[i] in dvs:
                     return False
-            else:
+                
+                d[s[i]] = t[i]
+                dvs.add(t[i])
+            elif d[s[i]] != t[i]:
                 return False
+        
         return True
+            
+            
+
 
                 
+                
+        
+
 
 
         
