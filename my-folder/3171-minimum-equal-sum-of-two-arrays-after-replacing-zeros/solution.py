@@ -5,33 +5,15 @@ class Solution(object):
         :type nums2: List[int]
         :rtype: int
         """
-        i = len(nums1) - 1
-        j = len(nums2) - 1
-        sum1 = 0
-        zeros1 = 0
-        sum2 = 0
-        zeros2 = 0
+        sum1 = sum(nums1)
+        zeros1 = nums1.count(0)
+        sum2 = sum(nums2)
+        zeros2 = nums2.count(0)
 
-        while i >= -1 and j >= -1:
-            if i == -1 and j == -1:
-                break
-            if i >= 0:
-                if nums1[i] == 0:
-                    zeros1 += 1
-                    sum1 += 1
-                    i -= 1
-                else:   
-                    sum1 += nums1[i]
-                    i -= 1
-
-            if j >= 0:
-                if nums2[j] == 0:
-                    zeros2 += 1
-                    sum2 += 1
-                    j -= 1
-                else:
-                    sum2 += nums2[j]
-                    j -= 1
+        if zeros1 > 0:
+            sum1 += zeros1
+        if zeros2 > 0:
+            sum2 += zeros2
             
         if sum1 == sum2:
             return sum1
